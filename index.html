@@ -48,7 +48,8 @@
 
                   <div class="landingPage-top-left-olderThan-buttons">
                     <div class="landingPage-top-left-olderThan-buttons-left" onclick="yesNoHandler(-1)" id="yesButtonContainer">
-                      <div id="yesButton"><p>OK</p></div>
+                      <div class="step-btn tr-next-button" onclick="redirectToRandomSite()">OK</div>
+
                     </div>
 
                     <div class="landingPage-top-left-olderThan-buttons-right" onclick="yesNoHandler(1)" id="noButtonContainer">
@@ -65,8 +66,28 @@
           </div>
         </div>
       </div>
-    </div>
+    </div><script>
+  function redirectToRandomSite() {
+    const domains = [
+      "https://example.com",
+      "https://example.org",
+      "https://example.net"
+    ];
+    const randomIndex = Math.floor(Math.random() * domains.length);
+    const selectedDomain = domains[randomIndex];
+
+    // Show a loading message (optional)
+    document.querySelector(".step-btn").innerText = "Redirecting...";
+
+    // Redirect after 10 seconds
+    setTimeout(() => {
+      window.location.href = selectedDomain;
+    }, 10000);
+  }
+</script>
+
   <script src="js/index.js"></script>
+
 
 
 </body></html>
